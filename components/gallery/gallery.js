@@ -9,7 +9,7 @@ export default class Gallery extends React.Component {
     }
 
     get_images() {
-        let link = "http://localhost:8082/gallery/get/images/"
+        let link = "https://3qd6ib.deta.dev/gallery/get/images/"
         axios.get(link)
             .then(response => {
                 const images = new Map(Object.entries(response.data["images"]));
@@ -35,7 +35,7 @@ export default class Gallery extends React.Component {
                         {
                             images.map(([key, image]) => (
                                 <div key={key} className="relative group">
-                                    <img src={"data:image/png;base64, " + image} className="w-72" />
+                                    <img alt="" src={"data:image/png;base64, " + image} className="w-72" />
                                     <div
                                         className="absolute bottom-0 left-0 right-0 p-2 px-4 text-white duration-500 bg-black opacity-0 group-hover:opacity-100 bg-opacity-40"
                                     >
