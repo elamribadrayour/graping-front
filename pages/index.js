@@ -1,13 +1,12 @@
 import Header from "../components/header/header"
 import Background from "../components/background";
-import Painting from "../components/gallery/painting";
+import Gallery from "../components/gallery/gallery";
 
-export default function Home() 
-{
+export default function Home() {
     return (
-        <div className={Background() + " text-white flex flex-col h-screen"}>
+        <div className={Background() + " text-white flex flex-col min-h-screen"}>
             <Header/>
-            <Painting/>
+            <Gallery/>
         </div>
     );
 }

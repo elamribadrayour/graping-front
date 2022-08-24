@@ -4,8 +4,8 @@ import * as chromotome from 'chromotome';
 
 let step = 10;
 let colors = []
-let width = 400;
-let height = 400;
+let width = 200;
+let height = 200;
 let radius = 267;
 
 
