@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React from "react";
+import Link from 'next/link';
 
 export default class Tabs extends React.Component
 {
@@ -33,7 +34,7 @@ export default class Tabs extends React.Component
                     {
                         tabs.map((value, key) => (
                             <div key={key}>
-                                <a href='/404'>{value}</a>
+                                <Link href='/404'>{value}</Link>
                             </div>
                         ))
                     }
