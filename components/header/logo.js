@@ -11,7 +11,7 @@ export default class Logo extends React.Component
 
     get_logo() 
     {
-        let link = "http://localhost:8082/header/get/logo"
+        let link = "https://3qd6ib.deta.dev/header/get/logo"
         axios.get(link, {responseType: 'arraybuffer'})
             .then(response => 
                 {

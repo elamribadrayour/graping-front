@@ -11,7 +11,7 @@ export default class Tabs extends React.Component
 
     get_tabs() 
     {
-        axios.get('http://localhost:8082/header/get/tabs')
+        axios.get('https://3qd6ib.deta.dev/header/get/tabs')
         .then((response) => {
             this.setState({tabs: response["data"]["tabs"]})
         })
