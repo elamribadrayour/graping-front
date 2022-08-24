@@ -40,7 +40,7 @@ export default class Gallery extends React.Component {
                     <div className="p-10 grid gap-10 justify-center items-center md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                         {
                             Array.from(this.state.images).map(([name, image]) => (
-                                <Thumbnail name={name.replace(/\.[^/.]+$/, "")} image={image}/>
+                                <Thumbnail key={name} name={name.replace(/\.[^/.]+$/, "")} image={image}/>
                             ))
                         }
                     </div>
