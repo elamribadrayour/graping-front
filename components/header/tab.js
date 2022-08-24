@@ -4,7 +4,7 @@ export default function Tab({href, title})
 {
     return(
         <div>
-            <Link href='/404'>{title}</Link>
+            <Link href={href}>{title}</Link>
         </div>
     )
 }
