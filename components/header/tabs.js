@@ -10,7 +10,7 @@ export default class Tabs extends React.Component
         super();
         this.tabs = new Map()
         this.tabs.set("home", "Home")
-        this.tabs.set("ml", "Machnine Learning")
+        this.tabs.set("ml", "Machine Learning")
         this.tabs.set("paintings", "Paintings")
         this.tabs.set("music", "Music")
 

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import Thumbnail from "./thumbnail";
 
 export default class Gallery extends React.Component {
 
@@ -9,7 +10,7 @@ export default class Gallery extends React.Component {
     }
 
     get_images() {
-        let link = "https://3qd6ib.deta.dev/gallery/get/images/"
+        let link = "http://localhost:8082/gallery/get/images/"
         axios.get(link)
             .then(response => {
                 const images = new Map(Object.entries(response.data["images"]));
@@ -19,7 +20,6 @@ export default class Gallery extends React.Component {
 
 
     render() {
-        let images = []
         if (this.state.images.size === undefined) {
             this.get_images()
             return(
@@ -39,20 +39,8 @@ export default class Gallery extends React.Component {
                     {/* Gallery */}
                     <div className="p-10 grid gap-10 justify-center items-center md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                         {
-                            Array.from(this.state.images).map(([key, image]) => (
-                                <div key={key} className="relative group">
-                                    <img alt="" src={"data:image/png;base64, " + image} className="w-72" />
-                                    <div
-                                        className="absolute bottom-0 left-0 right-0 p-2 px-4 text-white duration-500 bg-black opacity-0 group-hover:opacity-100 bg-opacity-40"
-                                    >
-                                        <div className="flex justify-between w-full">
-                                            <div className="font-normal">
-                                                <p className="text-sm">Abstract Painting</p>
-                                                <p className="text-xs">245 likes - 35 Shares</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            Array.from(this.state.images).map(([name, image]) => (
+                                <Thumbnail name={name.replace(/\.[^/.]+$/, "")} image={image}/>
                             ))
                         }
                     </div>
