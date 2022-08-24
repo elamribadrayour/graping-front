@@ -10,7 +10,7 @@ export default class Gallery extends React.Component {
     }
 
     get_images() {
-        let link = "http://localhost:8082/gallery/get/images/"
+        let link = "https://3qd6ib.deta.dev/gallery/get/images/"
         axios.get(link)
             .then(response => {
                 const images = new Map(Object.entries(response.data["images"]));
