@@ -1,12 +1,13 @@
 import Header from "../components/header/header"
 import Background from "../components/background";
-import Thumbnails from "../components/paintings/thumbnails";
+import Streamlits from "../components/ml/streamlits";
 
-export default function Paintings() {
+export default function ML()
+{
     return (
         <div className={Background() + " text-white flex flex-col min-h-screen"}>
             <Header/>
-            <Thumbnails/>
+            <Streamlits/>
         </div>
     );
 }

@@ -1,12 +1,11 @@
 import Header from "../components/header/header"
 import Background from "../components/background";
-import Thumbnails from "../components/paintings/thumbnails";
 
-export default function Paintings() {
+export default function Music()
+{
     return (
         <div className={Background() + " text-white flex flex-col min-h-screen"}>
             <Header/>
-            <Thumbnails/>
         </div>
     );
 }

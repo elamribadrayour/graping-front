@@ -1,27 +1,29 @@
 import React from "react";
 import axios from 'axios';
-import Thumbnail from "./thumbnail";
+import Thumbnail from "./paintings/thumbnail"
 
-export default class Gallery extends React.Component {
-
-    constructor() {
-        super();
-        this.state = { images: {} };
+export default class Gallery extends React.Component
+{
+    constructor(props)
+    {
+        super(props);
+        this.state = { data: {} };
     }
 
-    get_images() {
-        let link = "https://3qd6ib.deta.dev/gallery/get/images/"
-        axios.get(link)
+    get_data(url, name)
+    {
+        axios.get(url)
             .then(response => {
-                const images = new Map(Object.entries(response.data["images"]));
-                this.setState({images: images})
+                const data = new Map(Object.entries(response.data[name]));
+                this.setState({data: data})
             })
     }
 
-
-    render() {
-        if (this.state.images.size === undefined) {
-            this.get_images()
+    render()
+    {
+        if (this.state.data.size === undefined) 
+        {
+            this.get_data(this.url, this.name)
             return(
                 <div className="flex items-center justify-center h-screen">
                     <svg aria-hidden="true" className="mr-2 w-8 h-8 animate-spin fill-slate-900" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,10 +38,9 @@ export default class Gallery extends React.Component {
         return (
             <div className="flex flex-col min-h-screen">
                 <div className="flex flex-col w-screen">
-                    {/* Gallery */}
-                    <div className="p-10 grid gap-10 justify-center items-center md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                    <div className="p-10 grid gap-10 justify-center items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                         {
-                            Array.from(this.state.images).map(([name, image]) => (
+                            Array.from(this.state.data).map(([name, image]) => (
                                 <Thumbnail key={name} name={name.replace(/\.[^/.]+$/, "")} image={image}/>
                             ))
                         }
@@ -48,15 +49,3 @@ export default class Gallery extends React.Component {
             </div>);
     }
 }
-
-/**
- * 
- *                 for(let i = 0; i < 10; i++)
-                {
-
-                    let image = Buffer.from(response.data, 'binary').toString('base64')
-                    this.setState(prevState => ({
-                        images: [...prevState.images, image]
-                      }))
-                }
- */
